@@ -77,7 +77,14 @@
   .navlinks a:not(.cta):hover::after{width:100%;}
   .cta-btn{background:linear-gradient(135deg,var(--violet),var(--violet-2)); color:#fff; padding:10px 18px; border-radius:100px; font-weight:600; box-shadow:0 4px 20px rgba(139,125,255,0.35); transition:transform .25s, box-shadow .25s;}
   .cta-btn:hover{transform:translateY(-2px) scale(1.02); box-shadow:0 8px 28px rgba(139,125,255,0.5);}
-  .navtoggle{display:none;}
+  .navtoggle{display:none; width:40px; height:40px; border-radius:10px; border:1px solid var(--line-strong); background:transparent; color:var(--text); align-items:center; justify-content:center; cursor:pointer; flex-shrink:0;}
+  .navtoggle svg{width:20px; height:20px;}
+  .mobile-menu{display:none; position:fixed; top:76px; left:0; right:0; z-index:99; background:rgba(8,9,13,0.97); backdrop-filter:blur(14px); border-bottom:1px solid var(--line);
+    flex-direction:column; padding:10px 32px 26px; gap:2px; max-height:0; overflow:hidden; transition:max-height .35s ease;}
+  .mobile-menu.open{max-height:400px;}
+  .mobile-menu a{display:block; padding:14px 4px; font-family:var(--mono); font-size:13px; letter-spacing:.05em; text-transform:uppercase; color:var(--dim); border-bottom:1px solid var(--line);}
+  .mobile-menu a:hover{color:var(--text);}
+  .mobile-menu a.cta{color:var(--teal); border-bottom:none;}
 
   /* HERO */
   .hero{min-height:100vh; display:flex; align-items:center; padding-top:76px; position:relative;}
@@ -88,7 +95,7 @@
 
   /* photo + heading row */
   .hero-id{display:flex; align-items:center; gap:22px; margin-bottom:26px;}
-  .avatar{width:220px; height:220px; border-radius:36px; flex-shrink:0; overflow:hidden; position:relative;
+  .avatar{width:220px; height:220px; border-radius:12px; flex-shrink:0; overflow:hidden; position:relative;
     background:linear-gradient(135deg, rgba(139,125,255,0.18), rgba(47,224,196,0.12));
     border:1px solid var(--line-strong); box-shadow:0 12px 34px rgba(0,0,0,0.45);}
   .avatar img{width:100%; height:100%; object-fit:cover; display:block;}
@@ -229,13 +236,15 @@
 
   @media (max-width:900px){
     .navlinks{display:none;}
+    .navtoggle{display:flex;}
+    .mobile-menu{display:flex;}
     .hero-grid, .about-grid, .contact-inner{grid-template-columns:1fr;}
     .skills-grid, .proj-grid, .edu-grid{grid-template-columns:1fr;}
     .proj-card.wide{grid-column:span 1;}
     .contact-card{padding:36px 24px;}
     section{padding:90px 0;}
     .glow{display:none;}
-    .avatar{width:150px; height:150px; border-radius:30px;}
+    .avatar{width:150px; height:150px; border-radius:10px;}
   }
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto;}
@@ -262,7 +271,19 @@
       <a href="#education">Education</a>
       <a href="cv.pdf" download class="cta-btn">Resume ↓</a>
     </div>
+    <button class="navtoggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <svg id="navIconOpen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg id="navIconClose" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="display:none;"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>
+    </button>
   </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#work">Work</a>
+    <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
+    <a href="cv.pdf" download class="cta">Resume ↓</a>
+  </div>
 </header>
 
 <section class="hero wrap">
@@ -528,6 +549,26 @@
 </footer>
 
 <script>
+  // mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const iconOpen = document.getElementById('navIconOpen');
+  const iconClose = document.getElementById('navIconClose');
+  navToggle.addEventListener('click', ()=>{
+    const isOpen = mobileMenu.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen);
+    iconOpen.style.display = isOpen ? 'none' : 'block';
+    iconClose.style.display = isOpen ? 'block' : 'none';
+  });
+  mobileMenu.querySelectorAll('a').forEach(a=>{
+    a.addEventListener('click', ()=>{
+      mobileMenu.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      iconOpen.style.display = 'block';
+      iconClose.style.display = 'none';
+    });
+  });
+
   // scroll progress
   const progress = document.getElementById('progress');
   window.addEventListener('scroll', ()=>{
