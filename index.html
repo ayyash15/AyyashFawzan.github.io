@@ -87,7 +87,7 @@
   .mobile-menu a.cta{color:var(--teal); border-bottom:none;}
 
   /* HERO */
-  .hero{min-height:100vh; display:flex; align-items:center; padding-top:96px; position:relative;}
+  .hero{min-height:100vh; display:flex; align-items:center; padding-top:96px; position:relative; z-index:2;}
   .hero-grid{display:grid; grid-template-columns:1.15fr .95fr; gap:60px; align-items:center; width:100%;}
   .badge{display:inline-flex; align-items:center; gap:8px; font-family:var(--mono); font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--teal);
     border:1px solid rgba(47,224,196,0.35); background:rgba(47,224,196,0.06); padding:7px 14px; border-radius:100px; margin-bottom:30px;}
@@ -97,8 +97,8 @@
   .hero-id{display:flex; align-items:center; gap:22px; margin-bottom:26px;}
   .avatar{width:220px; height:220px; border-radius:12px; flex-shrink:0; overflow:hidden; position:relative;
     background:linear-gradient(135deg, rgba(139,125,255,0.18), rgba(47,224,196,0.12));
-    border:1px solid var(--line-strong); box-shadow:0 12px 34px rgba(0,0,0,0.45);}
-  .avatar img{width:100%; height:100%; object-fit:cover; object-position:top center; display:block;}
+    border:1px solid var(--line-strong); box-shadow:0 12px 34px rgba(0,0,0,0.45); z-index:5;}
+  .avatar img{width:100%; height:100%; object-fit:cover; object-position:center 20%; display:block;}
   .avatar .ph-fallback{position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
     font-family:var(--mono); font-size:10px; letter-spacing:.05em; text-transform:uppercase; color:var(--dim); text-align:center; padding:6px;}
 
@@ -139,6 +139,7 @@
   .sec-line{flex:1; height:1px; background:linear-gradient(90deg,var(--line-strong),transparent);}
 
   /* ABOUT */
+  #about{position:relative; z-index:2; background:var(--bg);}
   .about-grid{display:grid; grid-template-columns:1fr 1fr; gap:70px;}
   .about-grid p{color:var(--dim); font-size:16px; margin-bottom:20px;}
   .about-grid strong{color:var(--text); font-weight:600;}
@@ -238,7 +239,7 @@
     .navlinks{display:none;}
     .navtoggle{display:flex;}
     .mobile-menu{display:flex;}
-    .hero{min-height:auto; padding-bottom:60px;}
+    .hero{min-height:0; padding-top:110px; padding-bottom:70px;}
     .hero-grid, .about-grid, .contact-inner{grid-template-columns:1fr;}
     .skills-grid, .proj-grid, .edu-grid{grid-template-columns:1fr;}
     .proj-card.wide{grid-column:span 1;}
