@@ -85,6 +85,16 @@
   .badge{display:inline-flex; align-items:center; gap:8px; font-family:var(--mono); font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--teal);
     border:1px solid rgba(47,224,196,0.35); background:rgba(47,224,196,0.06); padding:7px 14px; border-radius:100px; margin-bottom:30px;}
   .badge .dot2{width:6px; height:6px; border-radius:50%; background:var(--teal);}
+
+  /* photo + heading row */
+  .hero-id{display:flex; align-items:center; gap:22px; margin-bottom:26px;}
+  .avatar{width:104px; height:104px; border-radius:28px; flex-shrink:0; overflow:hidden; position:relative;
+    background:linear-gradient(135deg, rgba(139,125,255,0.18), rgba(47,224,196,0.12));
+    border:1px solid var(--line-strong); box-shadow:0 12px 34px rgba(0,0,0,0.45);}
+  .avatar img{width:100%; height:100%; object-fit:cover; display:block;}
+  .avatar .ph-fallback{position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    font-family:var(--mono); font-size:10px; letter-spacing:.05em; text-transform:uppercase; color:var(--dim); text-align:center; padding:6px;}
+
   h1.title{font-family:var(--display); font-weight:700; font-size:clamp(40px,6vw,76px); line-height:1.02; letter-spacing:-0.02em;}
   .grad-text{background:linear-gradient(120deg,var(--violet) 0%, var(--teal) 60%, var(--violet) 100%); background-size:200% auto;
     -webkit-background-clip:text; background-clip:text; color:transparent; animation:shine 6s linear infinite;}
@@ -188,19 +198,30 @@
   .edu-sub{color:var(--dim); font-size:13px; margin-top:8px;}
   .edu-grade{margin-top:16px; font-family:var(--mono); font-size:11.5px; color:var(--violet); border-top:1px dashed var(--line); padding-top:14px;}
 
-  /* CONTACT */
+  /* CONTACT — redesigned */
   .contact-card{background:linear-gradient(160deg, rgba(139,125,255,0.1), rgba(47,224,196,0.05)); border:1px solid var(--line-strong); border-radius:28px; padding:64px; position:relative; overflow:hidden;}
   .contact-inner{display:grid; grid-template-columns:1.1fr .9fr; gap:60px; align-items:center; position:relative; z-index:1;}
   .contact-big{font-family:var(--display); font-size:clamp(32px,4.6vw,52px); font-weight:700; line-height:1.08;}
   .contact-sub{color:var(--dim); margin-top:18px; max-width:420px;}
   .contact-actions{display:flex; gap:14px; margin-top:32px; flex-wrap:wrap;}
-  .contact-list{display:flex; flex-direction:column; gap:2px;}
-  .contact-item{display:flex; justify-content:space-between; align-items:center; padding:18px 0; border-bottom:1px solid var(--line); transition:padding-left .25s;}
-  .contact-item:hover{padding-left:8px;}
+
+  .contact-list{display:flex; flex-direction:column; gap:14px;}
+  .contact-item{display:flex; justify-content:space-between; align-items:center; gap:14px; padding:18px 20px;
+    border:1px solid var(--line); border-radius:16px; background:rgba(18,20,28,0.45); backdrop-filter:blur(10px);
+    transition:border-color .25s, transform .25s, background .25s;}
+  .contact-item:hover{transform:translateY(-3px); border-color:var(--line-strong); background:rgba(18,20,28,0.7);}
+  .contact-item .info{display:flex; align-items:center; gap:14px; min-width:0;}
+  .contact-item .icon{width:40px; height:40px; border-radius:12px; background:var(--surface-2); display:flex; align-items:center; justify-content:center; font-size:16px; flex-shrink:0;}
+  .contact-item .txt{min-width:0;}
   .contact-item .lbl{font-family:var(--mono); font-size:10.5px; text-transform:uppercase; letter-spacing:.07em; color:var(--dim);}
-  .contact-item .val{font-family:var(--mono); font-size:13.5px; margin-top:5px;}
-  .contact-item a.val:hover{color:var(--teal);}
-  .contact-item .icon{width:34px; height:34px; border-radius:10px; background:var(--surface-2); display:flex; align-items:center; justify-content:center; font-size:15px;}
+  .contact-item .val{font-family:var(--mono); font-size:13px; margin-top:4px; display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+  .contact-item .val:hover{color:var(--teal);}
+  .connect-btn{font-family:var(--mono); font-size:10.5px; text-transform:uppercase; letter-spacing:.05em; padding:9px 16px;
+    border-radius:100px; border:1px solid rgba(47,224,196,0.35); color:var(--teal); background:rgba(47,224,196,0.06);
+    flex-shrink:0; transition:all .25s;}
+  .connect-btn:hover{background:rgba(47,224,196,0.16); transform:translateY(-2px);}
+  .connect-btn.violet{border-color:rgba(139,125,255,0.4); color:var(--violet); background:rgba(139,125,255,0.08);}
+  .connect-btn.violet:hover{background:rgba(139,125,255,0.18);}
 
   footer{padding:40px 0; border-top:1px solid var(--line); font-family:var(--mono); font-size:11.5px; color:var(--dim); display:flex; justify-content:space-between; align-items:center; position:relative; z-index:2;}
   .back-top{width:38px; height:38px; border-radius:50%; border:1px solid var(--line-strong); display:flex; align-items:center; justify-content:center; transition:all .25s;}
@@ -214,6 +235,7 @@
     .contact-card{padding:36px 24px;}
     section{padding:90px 0;}
     .glow{display:none;}
+    .avatar{width:84px; height:84px; border-radius:22px;}
   }
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto;}
@@ -238,7 +260,7 @@
       <a href="#work">Work</a>
       <a href="#experience">Experience</a>
       <a href="#education">Education</a>
-      <a href="resume.pdf" download class="cta-btn">Resume ↓</a>
+      <a href="cv.pdf" download class="cta-btn">Resume ↓</a>
     </div>
   </nav>
 </header>
@@ -247,11 +269,20 @@
   <div class="hero-grid">
     <div class="reveal in">
       <div class="badge"><span class="dot2"></span>Open to opportunities</div>
-      <h1 class="title">Engineering<br><span class="grad-text">systems that</span><br>survive real users.</h1>
+
+      <div class="hero-id">
+        <div class="avatar">
+          <!-- Upload photo.png to the repo root; it will appear here automatically -->
+          <img src="photo.png" alt="Ayyash Fawzan" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="ph-fallback" style="display:none;">Add<br>photo.png</div>
+        </div>
+        <h1 class="title" style="font-size:clamp(32px,4.6vw,58px);">Ayyash<br><span class="grad-text">Fawzan</span></h1>
+      </div>
+
       <p class="subhead">I'm Ayyash Fawzan — a Computer Engineering undergraduate at the University of Peradeniya, moving between register-level ARM assembly and production full-stack systems.</p>
       <div class="hero-actions">
         <a href="#work" class="btn btn-solid">View Projects →</a>
-        <a href="resume.pdf" download class="btn btn-ghost">Download Résumé ↓</a>
+        <a href="cv.pdf" download class="btn btn-ghost">Download Résumé ↓</a>
         <a href="https://wa.me/94754841152" target="_blank" rel="noopener" class="btn btn-outline-teal">Chat on WhatsApp</a>
       </div>
     </div>
@@ -438,26 +469,54 @@
         <p class="contact-sub">Open to new projects, internships, and collaboration. Fastest way to reach me is WhatsApp.</p>
         <div class="contact-actions">
           <a href="https://wa.me/94754841152" target="_blank" rel="noopener" class="btn btn-solid">Message on WhatsApp</a>
-          <a href="resume.pdf" download class="btn btn-ghost">Download Résumé ↓</a>
+          <a href="cv.pdf" download class="btn btn-ghost">Download CV ↓</a>
         </div>
       </div>
       <div class="contact-list">
+
         <div class="contact-item">
-          <div><div class="lbl">Email</div><a class="val" href="mailto:ayyashfawzan15@gmail.com">ayyashfawzan15@gmail.com</a></div>
-          <div class="icon">✉</div>
+          <div class="info">
+            <div class="icon">✉</div>
+            <div class="txt">
+              <div class="lbl">Email</div>
+              <span class="val">ayyashfawzan15@gmail.com</span>
+            </div>
+          </div>
+          <a class="connect-btn" href="mailto:ayyashfawzan15@gmail.com">Mail me</a>
         </div>
+
         <div class="contact-item">
-          <div><div class="lbl">Phone / WhatsApp</div><a class="val" href="https://wa.me/94754841152" target="_blank" rel="noopener">+94 75 484 1152</a></div>
-          <div class="icon">📱</div>
+          <div class="info">
+            <div class="icon">📱</div>
+            <div class="txt">
+              <div class="lbl">Phone / WhatsApp</div>
+              <span class="val">+94 75 484 1152</span>
+            </div>
+          </div>
+          <a class="connect-btn" href="https://wa.me/94754841152" target="_blank" rel="noopener">Message</a>
         </div>
+
         <div class="contact-item">
-          <div><div class="lbl">LinkedIn</div><a class="val" href="https://www.linkedin.com/in/ayyash-fawzan-94335b30a/" target="_blank" rel="noopener">ayyash-fawzan</a></div>
-          <div class="icon">in</div>
+          <div class="info">
+            <div class="icon">in</div>
+            <div class="txt">
+              <div class="lbl">LinkedIn</div>
+              <span class="val">ayyash-fawzan</span>
+            </div>
+          </div>
+          <a class="connect-btn violet" href="https://www.linkedin.com/in/ayyash-fawzan-94335b30a/" target="_blank" rel="noopener">Connect</a>
         </div>
+
         <div class="contact-item">
-          <div><div class="lbl">Location</div><span class="val">Colombo, Sri Lanka</span></div>
-          <div class="icon">📍</div>
+          <div class="info">
+            <div class="icon">📍</div>
+            <div class="txt">
+              <div class="lbl">Location</div>
+              <span class="val">Colombo, Sri Lanka</span>
+            </div>
+          </div>
         </div>
+
       </div>
     </div>
   </div>
