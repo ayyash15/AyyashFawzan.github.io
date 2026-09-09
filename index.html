@@ -226,6 +226,23 @@
   .edu-sub{color:var(--dim); font-size:13px; margin-top:8px;}
   .edu-grade{margin-top:16px; font-family:var(--mono); font-size:11.5px; color:var(--violet); border-top:1px dashed var(--line); padding-top:14px;}
 
+  /* ACHIEVEMENTS */
+  .ach-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  .ach-card{background:var(--surface); border:1px solid var(--line); border-radius:20px; overflow:hidden; transition:transform .35s, border-color .35s, box-shadow .35s;}
+  .ach-card:hover{transform:translateY(-6px); border-color:rgba(47,224,196,0.4); box-shadow:0 20px 50px rgba(0,0,0,0.4);}
+  .ach-photo{width:100%; aspect-ratio:16/10; overflow:hidden; background:var(--surface-2); position:relative;}
+  .ach-photo img{width:100%; height:100%; object-fit:cover; display:block;}
+  .ach-photo .ph-fallback{position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    font-family:var(--mono); font-size:10px; letter-spacing:.05em; text-transform:uppercase; color:var(--dim); text-align:center; padding:6px;}
+  .ach-body{padding:26px;}
+  .ach-tag{font-family:var(--mono); font-size:10.5px; color:var(--teal); text-transform:uppercase; letter-spacing:.06em;}
+  .ach-title{font-family:var(--display); font-size:17px; font-weight:700; margin-top:12px; line-height:1.3;}
+  .ach-date{font-family:var(--mono); font-size:11px; color:var(--dim); margin-top:8px; text-transform:uppercase; letter-spacing:.05em;}
+  .ach-desc{color:var(--dim); font-size:13.5px; margin-top:14px;}
+  .ach-links{display:flex; gap:16px; margin-top:18px; flex-wrap:wrap;}
+  .ach-links a{font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:.04em; color:var(--violet); display:inline-flex; align-items:center; gap:6px;}
+  .ach-links a:hover{color:var(--teal);}
+
   /* CONTACT */
   .contact-card{background:linear-gradient(160deg, rgba(139,125,255,0.1), rgba(47,224,196,0.05)); border:1px solid var(--line-strong); border-radius:28px; padding:64px; position:relative; overflow:hidden;}
   .contact-inner{display:grid; grid-template-columns:1.1fr .9fr; gap:60px; align-items:center; position:relative; z-index:1;}
@@ -259,7 +276,7 @@
     .navlinks{display:none;}
     .navtoggle{display:flex;}
     .hero-grid, .about-grid, .contact-inner{grid-template-columns:1fr;}
-    .skills-grid, .proj-grid, .edu-grid{grid-template-columns:1fr;}
+    .skills-grid, .proj-grid, .edu-grid, .ach-grid{grid-template-columns:1fr;}
     .proj-card.wide{grid-column:span 1;}
     .contact-card{padding:36px 24px;}
     section{padding:90px 0; scroll-margin-top:calc(var(--header-h) + 10px);}
@@ -290,7 +307,7 @@
     h1.title{font-size:clamp(26px,8vw,34px) !important;}
   }
   @media (hover: none){
-    .proj-card:hover, .stat-card:hover, .skill-card:hover, .edu-card:hover, .contact-item:hover{ transform:none; }
+    .proj-card:hover, .stat-card:hover, .skill-card:hover, .edu-card:hover, .contact-item:hover, .ach-card:hover{ transform:none; }
   }
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto;}
@@ -315,6 +332,7 @@
       <a href="#work">Work</a>
       <a href="#experience">Experience</a>
       <a href="#education">Education</a>
+      <a href="#achievements">Achievements</a>
       <a href="cv.pdf" download class="cta-btn">Resume ↓</a>
     </div>
     <button class="navtoggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu">
@@ -331,6 +349,7 @@
   <a href="#work">Work</a>
   <a href="#experience">Experience</a>
   <a href="#education">Education</a>
+  <a href="#achievements">Achievements</a>
   <a href="cv.pdf" download class="cta">Resume ↓</a>
 </nav>
 
@@ -373,7 +392,7 @@
       <p>I'm motivated by <strong>real engineering constraints</strong>: production deployment, security, scalability — and by debugging a system until it actually survives contact with real users.</p>
     </div>
     <div class="stat-grid reveal" style="transition-delay:.1s;">
-      <div class="stat-card"><div class="n" data-count="7">0</div><div class="l">Projects Shipped</div></div>
+      <div class="stat-card"><div class="n" data-count="10">0</div><div class="l">Projects Shipped</div></div>
       <div class="stat-card"><div class="n">3A</div><div class="l">A/L Results</div></div>
       <div class="stat-card"><div class="n" data-count="2">0</div><div class="l">Mentoring Roles</div></div>
       <div class="stat-card"><div class="n" data-count="4">0</div><div class="l">Years In Program</div></div>
@@ -430,7 +449,7 @@
       <div class="proj-title">RealMe — AI-Powered Physics Learning Platform</div>
       <p class="proj-desc">A structured, distraction-free A/L Physics platform with a domain-constrained AI mentor restricted strictly to Physics, giving step-by-step derivations aligned to syllabus. Built the full system: React/Vite frontend with a custom video protection layer, and a Firebase Auth + Firestore backend with real-time progress tracking.</p>
       <div class="proj-tags"><span>React / Vite</span><span>Tailwind</span><span>Firebase</span><span>AI</span></div>
-      <a href="#" class="proj-link">Case Study <span class="arrow">→</span></a>
+      <a href="https://github.com/ayyash15/realme-physics-platform-showcasing-version-" target="_blank" rel="noopener" class="proj-link">View Source <span class="arrow">→</span></a>
     </div>
 
     <div class="proj-card reveal" style="transition-delay:.05s;">
@@ -438,7 +457,7 @@
       <div class="proj-title">AI Workforce — WhatsApp AI SaaS</div>
       <p class="proj-desc">Full-stack AI SaaS integrating WhatsApp via Meta's Cloud API, with secure auth, role-based architecture, and a Vercel + Railway deployment pipeline.</p>
       <div class="proj-tags"><span>Spring Boot</span><span>Meta API</span><span>Railway</span></div>
-      <a href="#" class="proj-link">Case Study <span class="arrow">→</span></a>
+      <a href="https://github.com/ayyash15/whatsapp-ai-saas" target="_blank" rel="noopener" class="proj-link">View Source <span class="arrow">→</span></a>
     </div>
 
     <div class="proj-card reveal" style="transition-delay:.1s;">
@@ -446,7 +465,10 @@
       <div class="proj-title">Web-Based PAR Index System</div>
       <p class="proj-desc">Lets orthodontists upload 3D dental scans, place landmarks in-browser, and auto-calculate weighted PAR scores — replacing manual ruler-based scoring, with a PointNet ML model planned next.</p>
       <div class="proj-tags"><span>Spring Boot</span><span>React</span><span>Three.js</span></div>
-      <a href="#" class="proj-link">View Source <span class="arrow">→</span></a>
+      <div style="display:flex; gap:20px; flex-wrap:wrap; position:relative; z-index:1;">
+        <a href="https://github.com/ayyash15" target="_blank" rel="noopener" class="proj-link">View Source <span class="arrow">→</span></a>
+        <a href="https://projects.ce.pdn.ac.lk/co2060/e22/Web_Based_PAR_Index_System/" target="_blank" rel="noopener" class="proj-link">Live Demo <span class="arrow">→</span></a>
+      </div>
     </div>
 
     <div class="proj-card reveal" style="transition-delay:.15s;">
@@ -454,7 +476,7 @@
       <div class="proj-title">libtiny3d — 3D Software Renderer</div>
       <p class="proj-desc">A lightweight 3D graphics engine in pure C — custom vector/matrix/quaternion math, software rasterization, Lambert lighting, Bezier-curve animation.</p>
       <div class="proj-tags"><span>C</span><span>Linear Algebra</span></div>
-      <a href="#" class="proj-link">View Source <span class="arrow">→</span></a>
+      <a href="https://github.com/ayyash15" target="_blank" rel="noopener" class="proj-link">View Source <span class="arrow">→</span></a>
     </div>
 
     <div class="proj-card reveal" style="transition-delay:.2s;">
@@ -462,7 +484,7 @@
       <div class="proj-title">ARM32 Mini Shell</div>
       <p class="proj-desc">An interactive shell written entirely in ARM32 assembly — custom parsing, register/stack management, native syscalls, zero C wrapper.</p>
       <div class="proj-tags"><span>ARM Assembly</span><span>OS</span></div>
-      <a href="#" class="proj-link">View Source <span class="arrow">→</span></a>
+      <a href="https://github.com/ayyash15" target="_blank" rel="noopener" class="proj-link">View Source <span class="arrow">→</span></a>
     </div>
 
     <div class="proj-card reveal" style="transition-delay:.25s;">
@@ -470,7 +492,7 @@
       <div class="proj-title">4-Bit Comparator Module</div>
       <p class="proj-desc">IC-level 4-bit binary comparator built as part of a 10-module digital electronics teaching set, validated across every input combination in Proteus.</p>
       <div class="proj-tags"><span>Digital Logic</span><span>Proteus</span></div>
-      <a href="#" class="proj-link">View Details <span class="arrow">→</span></a>
+      <a href="https://github.com/cepdnaclk/EngEx-Basic-Digital-Electronics" target="_blank" rel="noopener" class="proj-link">View Details <span class="arrow">→</span></a>
     </div>
 
     <div class="proj-card reveal" style="transition-delay:.3s;">
@@ -478,7 +500,31 @@
       <div class="proj-title">Line-Following Robot — DC Motor Control</div>
       <p class="proj-desc">State-space DC motor model with closed-loop speed control tested under three voltage-control strategies, mapped to Arduino PWM logic.</p>
       <div class="proj-tags"><span>Control Systems</span><span>Arduino</span></div>
-      <a href="#" class="proj-link">View Details <span class="arrow">→</span></a>
+      <a href="https://github.com/ayyash15" target="_blank" rel="noopener" class="proj-link">View Details <span class="arrow">→</span></a>
+    </div>
+
+    <div class="proj-card reveal" style="transition-delay:.35s;">
+      <div class="proj-top"><span class="proj-index">008</span></div>
+      <div class="proj-title">Offside Detector — Position ≠ Offense</div>
+      <p class="proj-desc">An interactive football offside simulation demonstrating the distinction between offside position and an offside offense under Law 11, with synchronized animation, voice narration, captions, and step/slow-motion replay controls.</p>
+      <div class="proj-tags"><span>HTML/CSS/JS</span><span>Simulation</span><span>Rule Engine</span></div>
+      <a href="https://github.com/ayyash15/Offside_ruler" target="_blank" rel="noopener" class="proj-link">View Source <span class="arrow">→</span></a>
+    </div>
+
+    <div class="proj-card reveal" style="transition-delay:.4s;">
+      <div class="proj-top"><span class="proj-index">009</span></div>
+      <div class="proj-title">AgriSense AI — Agricultural Decision Support Platform</div>
+      <p class="proj-desc">An AI-powered agricultural decision-support platform built as part of team TIMESWARE: a Next.js frontend, FastAPI core backend on MySQL, and a separate ONNX Runtime inference microservice (EfficientNet, YOLOv11) for crop/farm analysis.</p>
+      <div class="proj-tags"><span>Next.js</span><span>FastAPI</span><span>ONNX / YOLOv11</span><span>Team Project</span></div>
+      <a href="https://github.com/Hafees14/AgriSense_AI" target="_blank" rel="noopener" class="proj-link">View Source <span class="arrow">→</span></a>
+    </div>
+
+    <div class="proj-card reveal" style="transition-delay:.45s;">
+      <div class="proj-top"><span class="proj-index">010</span></div>
+      <div class="proj-title">Forensic Medicine Management System</div>
+      <p class="proj-desc">A web-based system designed to manage forensic medicine records, case information, and medical documentation workflows — providing structured record management and improving efficiency in handling forensic case data.</p>
+      <div class="proj-tags"><span>Web App</span><span>Records Management</span></div>
+      <a href="https://github.com/ayyash15" target="_blank" rel="noopener" class="proj-link">View Source <span class="arrow">→</span></a>
     </div>
 
   </div>
@@ -488,19 +534,28 @@
   <div class="sec-head reveal"><span class="sec-num">04</span><h2 class="sec-title">Where I've contributed</h2><div class="sec-line"></div></div>
   <div class="timeline">
     <div class="t-item reveal">
-      <div class="t-date">Ongoing</div>
-      <div class="t-role">Physics Mentor &amp; Teacher</div>
-      <div class="t-org">Peradeniya Science Hall &middot; Thalgaspitiya Education Development Association</div>
-      <ul>
-        <li>Guides A/L students through Physics problem-solving and exam preparation</li>
-        <li>Builds structured, syllabus-aligned teaching material</li>
-      </ul>
+      <div class="t-date">Jul 2026 — Present</div>
+      <div class="t-role">Member</div>
+      <div class="t-org">AIESEC in Sri Lanka</div>
+      <ul><li>Supporting the organization's youth leadership and exchange initiatives</li></ul>
     </div>
     <div class="t-item reveal" style="transition-delay:.1s;">
-      <div class="t-date">Active Member</div>
-      <div class="t-role">Undergraduates &amp; Young Graduates Association</div>
-      <div class="t-org">University of Peradeniya</div>
-      <ul><li>Fosters leadership, collaboration, and professional growth among members</li></ul>
+      <div class="t-date">Oct 2025 — Present</div>
+      <div class="t-role">Physics Tutor</div>
+      <div class="t-org">Thalgaspitiya Education Development Association</div>
+      <ul><li>Mentorship, guidance, and inspiration for A/L Physics students</li></ul>
+    </div>
+    <div class="t-item reveal" style="transition-delay:.2s;">
+      <div class="t-date">Jan 2025 — Present</div>
+      <div class="t-role">Mentor</div>
+      <div class="t-org">Peradeniya Science Hall</div>
+      <ul><li>Guides students to excel in concepts, problem-solving, and scientific thinking</li></ul>
+    </div>
+    <div class="t-item reveal" style="transition-delay:.3s;">
+      <div class="t-date">Jul 2023 — Present</div>
+      <div class="t-role">Member</div>
+      <div class="t-org">Undergraduates &amp; Young Graduates Association (UYAH) — Hapugasthalawa</div>
+      <ul><li>Engaging undergraduates and young graduates through mentorship, skill-building, and leadership initiatives</li></ul>
     </div>
   </div>
 </section>
@@ -526,6 +581,64 @@
       <div class="edu-sub">Al Minhaj National School</div>
       <div class="edu-grade">9A</div>
     </div>
+  </div>
+</section>
+
+<section id="achievements" class="wrap">
+  <div class="sec-head reveal"><span class="sec-num">06</span><h2 class="sec-title">Achievements</h2><div class="sec-line"></div></div>
+  <div class="ach-grid">
+
+    <div class="ach-card reveal">
+      <div class="ach-photo">
+        <img src="ach1.jpg" alt="TIMESWARE — AgriTech Startup Spark 2026 Top 10" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="ph-fallback" style="display:none;">Add<br>ach1.jpg</div>
+      </div>
+      <div class="ach-body">
+        <div class="ach-tag">Competition / Achievement</div>
+        <div class="ach-title">TIMESWARE Advances to the Top 10 of AgriTech Startup Spark 2026</div>
+        <div class="ach-date">08 Sep 2026</div>
+        <p class="ach-desc">Our team, TIMESWARE, has been selected among the Top 10 teams advancing to the next stage of AgriTech Startup Spark 2026, a competition focused on technology-driven solutions for the agriculture sector.</p>
+        <div class="ach-links">
+          <a href="https://www.linkedin.com/posts/iesluop_agritechstartupspark-agritech2026-top10-activity-7502000920403255296-WyYA" target="_blank" rel="noopener">View Announcement →</a>
+          <a href="https://github.com/Hafees14/AgriSense_AI" target="_blank" rel="noopener">View Project →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="ach-card reveal" style="transition-delay:.1s;">
+      <div class="ach-photo">
+        <img src="ach2.jpg" alt="TIMESWARE — Xcellerate 2026 Top 25" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="ph-fallback" style="display:none;">Add<br>ach2.jpg</div>
+      </div>
+      <div class="ach-body">
+        <div class="ach-tag">Hackathon / Achievement</div>
+        <div class="ach-title">TIMESWARE Selected as a Top 25 Team at Xcellerate 2026</div>
+        <div class="ach-date">20 Aug 2026</div>
+        <p class="ach-desc">Our team, TIMESWARE, was selected as one of the Top 25 teams for the Xcellerate Inter-University Ideathon Hackathon 2026, organized by SLASSCOM, out of 150+ applications. Selected teams take part in mentorship sessions and expert-led webinars ahead of the final hackathon in Colombo. Our entry for this competition is the Web-Based PAR Index System.</p>
+        <div class="ach-links">
+          <a href="https://www.linkedin.com/posts/slasscom_slasscom-xcellerate2026-interuniversityhackathon-activity-7498970592763797505-y49_/" target="_blank" rel="noopener">View Announcement →</a>
+          <a href="https://projects.ce.pdn.ac.lk/co2060/e22/Web_Based_PAR_Index_System/" target="_blank" rel="noopener">View Project →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="ach-card reveal" style="transition-delay:.2s;">
+      <div class="ach-photo">
+        <img src="ach3.jpg" alt="TIMESWARE — Project Nova Flash Round" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="ph-fallback" style="display:none;">Add<br>ach3.jpg</div>
+      </div>
+      <div class="ach-body">
+        <div class="ach-tag">Competition / Achievement</div>
+        <div class="ach-title">TIMESWARE Selected for the Project Nova Flash Round</div>
+        <div class="ach-date">20 Aug 2026</div>
+        <p class="ach-desc">Our team, TIMESWARE, has been selected for the Flash Round of Project Nova 2026 with our project, the Web-Based PAR Index System, which automates orthodontic assessment from 3D dental scan models.</p>
+        <div class="ach-links">
+          <a href="https://www.project-nova.tech/" target="_blank" rel="noopener">View Project Nova →</a>
+          <a href="https://projects.ce.pdn.ac.lk/co2060/e22/Web_Based_PAR_Index_System/" target="_blank" rel="noopener">View Project →</a>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
