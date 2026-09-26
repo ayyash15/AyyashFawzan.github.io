@@ -49,10 +49,7 @@
     background:radial-gradient(circle, rgba(139,125,255,0.12), transparent 70%);
     transform:translate(-50%,-50%); transition:opacity .3s; will-change:transform; opacity:1;}
 
-  /* aurora background — absolute over the full document (NOT fixed).
-     iOS Safari has a long-standing bug where position:fixed + filter:blur
-     elements fail to repaint/disappear during scroll/rotation. Anchoring
-     to the document instead of the viewport avoids that entirely. */
+  /* aurora background */
   .aurora{position:absolute; top:0; left:0; right:0; height:100%; min-height:100vh; min-height:100dvh; z-index:0; overflow:hidden; pointer-events:none;}
   .aurora span{position:absolute; border-radius:50%; filter:blur(90px); opacity:.35; mix-blend-mode:screen; transform:translateZ(0); -webkit-transform:translateZ(0);}
   .a1{width:520px; height:520px; background:var(--violet); top:-160px; left:-120px; animation:float1 22s ease-in-out infinite;}
@@ -366,7 +363,7 @@
         <h1 class="title">Ayyash<br><span class="grad-text">Fawzan</span></h1>
       </div>
 
-      <p class="subhead">I'm Ayyash Fawzan — a Computer Engineering undergraduate at the University of Peradeniya, moving between register-level ARM assembly and production full-stack systems.</p>
+      <p class="subhead">I build systems that matter — from AI-driven applications to sports analytics to educational platforms.</p>
       <div class="hero-actions">
         <a href="#work" class="btn btn-solid">View Projects →</a>
         <a href="cv.pdf" download class="btn btn-ghost">Download Résumé ↓</a>
@@ -387,9 +384,16 @@
   <div class="sec-head reveal"><span class="sec-num">01</span><h2 class="sec-title">About me</h2><div class="sec-line"></div></div>
   <div class="about-grid">
     <div class="reveal">
-      <p>I'm a Computer Engineering undergraduate with a strong pull toward <strong>hardware design, digital systems, and the layer where software meets silicon.</strong> Whether it's an ARM32 shell running raw syscalls or a production AI SaaS behind Meta's WhatsApp Cloud API, I want to understand the system all the way down.</p>
-      <p>Alongside coursework, I mentor students in physics at Peradeniya Science Hall and the Thalgaspitiya Education Development Association, and I'm active within the Undergraduates and Young Graduates Association — I enjoy environments where knowledge moves both ways.</p>
-      <p>I'm motivated by <strong>real engineering constraints</strong>: production deployment, security, scalability — and by debugging a system until it actually survives contact with real users.</p>
+      <p>I'm a Computer Engineering undergraduate at the University of Peradeniya passionate about <strong>full-stack development, machine learning, and solving real-world problems through technology.</strong></p>
+      <p><strong>What I'm currently building:</strong></p>
+      <ul style="padding-left:20px; margin-bottom:20px; color:var(--dim);">
+        <li style="margin-bottom:8px;"><strong style="color:var(--text);">Offside Detector</strong> — A touch-trigger engine that simulates EA Sports' offside detection system, distinguishing offside position from active play according to Law 11.</li>
+        <li style="margin-bottom:8px;"><strong style="color:var(--text);">PAR Index System</strong> — Designed the ML pipeline for an orthodontic case management platform (Spring Boot + React + FastAPI + Docker) — deployed and in active use.</li>
+        <li style="margin-bottom:8px;"><strong style="color:var(--text);">RealMe</strong> — Built a Firebase-based A/L Physics e-learning platform currently deployed with my tutoring operation.</li>
+        <li><strong style="color:var(--text);">CO5420 Neural Networks</strong> — Leading team through end-to-end ML pipeline for Human Activity Recognition on Kaggle.</li>
+      </ul>
+      <p>I mentor physics students at Peradeniya Science Hall and Thalgaspitiya Education Development Association, and I'm active in the Undergraduates and Young Graduates Association—I value environments where knowledge flows both ways.</p>
+      <p>Motivated by <strong>real engineering constraints</strong>: production deployment, security, scalability — and by debugging systems until they survive real users.</p>
     </div>
     <div class="stat-grid reveal" style="transition-delay:.1s;">
       <div class="stat-card"><div class="n" data-count="10">0</div><div class="l">Projects Shipped</div></div>
@@ -429,12 +433,12 @@
         <div class="skill-row"><div class="lbl"><span>Spring Boot</span><span>65%</span></div><div class="skill-track"><div class="skill-fill" data-w="65"></div></div></div>
       </div>
       <div class="skill-card reveal" style="transition-delay:.2s;">
-        <h4>Tools, HDL &amp; Platforms</h4>
+        <h4>Tools, HDL &amp; ML</h4>
         <div class="skill-row"><div class="lbl"><span>Git / GitHub</span><span>85%</span></div><div class="skill-track"><div class="skill-fill" data-w="85"></div></div></div>
-        <div class="skill-row"><div class="lbl"><span>HDL</span><span>70%</span></div><div class="skill-track"><div class="skill-fill" data-w="70"></div></div></div>
-        <div class="skill-row"><div class="lbl"><span>MATLAB</span><span>70%</span></div><div class="skill-track"><div class="skill-fill" data-w="70"></div></div></div>
-        <div class="skill-row"><div class="lbl"><span>Proteus</span><span>68%</span></div><div class="skill-track"><div class="skill-fill" data-w="68"></div></div></div>
-        <div class="skill-row"><div class="lbl"><span>Railway / Vercel</span><span>66%</span></div><div class="skill-track"><div class="skill-fill" data-w="66"></div></div></div>
+        <div class="skill-row"><div class="lbl"><span>Machine Learning</span><span>75%</span></div><div class="skill-track"><div class="skill-fill" data-w="75"></div></div></div>
+        <div class="skill-row"><div class="lbl"><span>TensorFlow</span><span>72%</span></div><div class="skill-track"><div class="skill-fill" data-w="72"></div></div></div>
+        <div class="skill-row"><div class="lbl"><span>Docker</span><span>70%</span></div><div class="skill-track"><div class="skill-fill" data-w="70"></div></div></div>
+        <div class="skill-row"><div class="lbl"><span>FastAPI</span><span>68%</span></div><div class="skill-track"><div class="skill-fill" data-w="68"></div></div></div>
       </div>
     </div>
   </div>
@@ -446,22 +450,30 @@
 
     <div class="proj-card wide reveal">
       <div class="proj-top"><span class="proj-index">001</span></div>
+      <div class="proj-title">CO5420 — Human Activity Recognition with Neural Networks</div>
+      <p class="proj-desc">Classified 6 human activities (walking, sitting, standing, laying, stairs up/down) from 561 accelerometer + gyroscope features using machine learning. Compared Decision Tree (0.859 F1), Tuned SVM (0.949 F1), and Feedforward Neural Network (0.969 F1). Validated with subject-disjoint split for honest real-world generalization. Key insight: input scaling critical for NNs but not SVM; simpler network often beats deeper. Ensemble model scored 0.9524 on Kaggle leaderboard.</p>
+      <div class="proj-tags"><span>Python</span><span>TensorFlow</span><span>Scikit-learn</span><span>Neural Networks</span><span>Kaggle</span></div>
+      <a href="https://github.com/ayyash15/" target="_blank" rel="noopener" class="proj-link">View Source <span class="arrow">→</span></a>
+    </div>
+
+    <div class="proj-card reveal" style="transition-delay:.05s;">
+      <div class="proj-top"><span class="proj-index">002</span></div>
       <div class="proj-title">RealMe — AI-Powered Physics Learning Platform</div>
       <p class="proj-desc">A structured, distraction-free A/L Physics platform with a domain-constrained AI mentor restricted strictly to Physics, giving step-by-step derivations aligned to syllabus. Built the full system: React/Vite frontend with a custom video protection layer, and a Firebase Auth + Firestore backend with real-time progress tracking.</p>
       <div class="proj-tags"><span>React / Vite</span><span>Tailwind</span><span>Firebase</span><span>AI</span></div>
       <a href="https://github.com/ayyash15/realme-physics-platform-showcasing-version-" target="_blank" rel="noopener" class="proj-link">View Source <span class="arrow">→</span></a>
     </div>
 
-    <div class="proj-card reveal" style="transition-delay:.05s;">
-      <div class="proj-top"><span class="proj-index">002</span></div>
+    <div class="proj-card reveal" style="transition-delay:.1s;">
+      <div class="proj-top"><span class="proj-index">003</span></div>
       <div class="proj-title">AI Workforce — WhatsApp AI SaaS</div>
       <p class="proj-desc">Full-stack AI SaaS integrating WhatsApp via Meta's Cloud API, with secure auth, role-based architecture, and a Vercel + Railway deployment pipeline.</p>
       <div class="proj-tags"><span>Spring Boot</span><span>Meta API</span><span>Railway</span></div>
       <a href="https://github.com/ayyash15/whatsapp-ai-saas" target="_blank" rel="noopener" class="proj-link">View Source <span class="arrow">→</span></a>
     </div>
 
-    <div class="proj-card reveal" style="transition-delay:.1s;">
-      <div class="proj-top"><span class="proj-index">003</span></div>
+    <div class="proj-card reveal" style="transition-delay:.15s;">
+      <div class="proj-top"><span class="proj-index">004</span></div>
       <div class="proj-title">Web-Based PAR Index System</div>
       <p class="proj-desc">Lets orthodontists upload 3D dental scans, place landmarks in-browser, and auto-calculate weighted PAR scores — replacing manual ruler-based scoring, with a PointNet ML model planned next.</p>
       <div class="proj-tags"><span>Spring Boot</span><span>React</span><span>Three.js</span></div>
@@ -471,56 +483,40 @@
       </div>
     </div>
 
-    <div class="proj-card reveal" style="transition-delay:.15s;">
-      <div class="proj-top"><span class="proj-index">004</span></div>
+    <div class="proj-card reveal" style="transition-delay:.2s;">
+      <div class="proj-top"><span class="proj-index">005</span></div>
       <div class="proj-title">libtiny3d — 3D Software Renderer</div>
       <p class="proj-desc">A lightweight 3D graphics engine in pure C — custom vector/matrix/quaternion math, software rasterization, Lambert lighting, Bezier-curve animation.</p>
       <div class="proj-tags"><span>C</span><span>Linear Algebra</span></div>
       <a href="https://github.com/ayyash15" target="_blank" rel="noopener" class="proj-link">View Source <span class="arrow">→</span></a>
     </div>
 
-    <div class="proj-card reveal" style="transition-delay:.2s;">
-      <div class="proj-top"><span class="proj-index">005</span></div>
+    <div class="proj-card reveal" style="transition-delay:.25s;">
+      <div class="proj-top"><span class="proj-index">006</span></div>
       <div class="proj-title">ARM32 Mini Shell</div>
       <p class="proj-desc">An interactive shell written entirely in ARM32 assembly — custom parsing, register/stack management, native syscalls, zero C wrapper.</p>
       <div class="proj-tags"><span>ARM Assembly</span><span>OS</span></div>
       <a href="https://github.com/ayyash15" target="_blank" rel="noopener" class="proj-link">View Source <span class="arrow">→</span></a>
     </div>
 
-    <div class="proj-card reveal" style="transition-delay:.25s;">
-      <div class="proj-top"><span class="proj-index">006</span></div>
-      <div class="proj-title">4-Bit Comparator Module</div>
-      <p class="proj-desc">IC-level 4-bit binary comparator built as part of a 10-module digital electronics teaching set, validated across every input combination in Proteus.</p>
-      <div class="proj-tags"><span>Digital Logic</span><span>Proteus</span></div>
-      <a href="https://github.com/cepdnaclk/EngEx-Basic-Digital-Electronics" target="_blank" rel="noopener" class="proj-link">View Details <span class="arrow">→</span></a>
-    </div>
-
     <div class="proj-card reveal" style="transition-delay:.3s;">
       <div class="proj-top"><span class="proj-index">007</span></div>
-      <div class="proj-title">Line-Following Robot — DC Motor Control</div>
-      <p class="proj-desc">State-space DC motor model with closed-loop speed control tested under three voltage-control strategies, mapped to Arduino PWM logic.</p>
-      <div class="proj-tags"><span>Control Systems</span><span>Arduino</span></div>
-      <a href="https://github.com/ayyash15" target="_blank" rel="noopener" class="proj-link">View Details <span class="arrow">→</span></a>
-    </div>
-
-    <div class="proj-card reveal" style="transition-delay:.35s;">
-      <div class="proj-top"><span class="proj-index">008</span></div>
       <div class="proj-title">Offside Detector — Position ≠ Offense</div>
-      <p class="proj-desc">An interactive football offside simulation demonstrating the distinction between offside position and an offside offense under Law 11, with synchronized animation, voice narration, captions, and step/slow-motion replay controls.</p>
+      <p class="proj-desc">An interactive football offside simulation demonstrating the distinction between offside position and an offside offense under Law 11, with synchronized animation, voice narration, captions, and step/slow-motion replay controls. Portfolio project targeting EA Sports.</p>
       <div class="proj-tags"><span>HTML/CSS/JS</span><span>Simulation</span><span>Rule Engine</span></div>
       <a href="https://github.com/ayyash15/Offside_ruler" target="_blank" rel="noopener" class="proj-link">View Source <span class="arrow">→</span></a>
     </div>
 
-    <div class="proj-card reveal" style="transition-delay:.4s;">
-      <div class="proj-top"><span class="proj-index">009</span></div>
+    <div class="proj-card reveal" style="transition-delay:.35s;">
+      <div class="proj-top"><span class="proj-index">008</span></div>
       <div class="proj-title">AgriSense AI — Agricultural Decision Support Platform</div>
       <p class="proj-desc">An AI-powered agricultural decision-support platform built as part of team TIMESWARE: a Next.js frontend, FastAPI core backend on MySQL, and a separate ONNX Runtime inference microservice (EfficientNet, YOLOv11) for crop/farm analysis.</p>
       <div class="proj-tags"><span>Next.js</span><span>FastAPI</span><span>ONNX / YOLOv11</span><span>Team Project</span></div>
       <a href="https://github.com/Hafees14/AgriSense_AI" target="_blank" rel="noopener" class="proj-link">View Source <span class="arrow">→</span></a>
     </div>
 
-    <div class="proj-card reveal" style="transition-delay:.45s;">
-      <div class="proj-top"><span class="proj-index">010</span></div>
+    <div class="proj-card reveal" style="transition-delay:.4s;">
+      <div class="proj-top"><span class="proj-index">009</span></div>
       <div class="proj-title">Forensic Medicine Management System</div>
       <p class="proj-desc">A web-based system designed to manage forensic medicine records, case information, and medical documentation workflows — providing structured record management and improving efficiency in handling forensic case data.</p>
       <div class="proj-tags"><span>Web App</span><span>Records Management</span></div>
@@ -534,10 +530,14 @@
   <div class="sec-head reveal"><span class="sec-num">04</span><h2 class="sec-title">Where I've contributed</h2><div class="sec-line"></div></div>
   <div class="timeline">
     <div class="t-item reveal">
-      <div class="t-date">Jul 2026 — Present</div>
-      <div class="t-role">Member</div>
-      <div class="t-org">AIESEC in Sri Lanka</div>
-      <ul><li>Supporting the organization's youth leadership and exchange initiatives</li></ul>
+      <div class="t-date">Aug 2026 — Present</div>
+      <div class="t-role">B2B Team Member (iGV Delegate)</div>
+      <div class="t-org">AIESEC in University of Peradeniya</div>
+      <ul>
+        <li>Contributing to AIESEC's Global Volunteer (iGV) B2B initiatives, connecting organizations with volunteer opportunities</li>
+        <li>Supporting partnership development and volunteer coordination for international programs</li>
+        <li>Collaborating with cross-functional teams to drive business development and organizational growth</li>
+      </ul>
     </div>
     <div class="t-item reveal" style="transition-delay:.1s;">
       <div class="t-date">Oct 2025 — Present</div>
@@ -554,7 +554,7 @@
     <div class="t-item reveal" style="transition-delay:.3s;">
       <div class="t-date">Jul 2023 — Present</div>
       <div class="t-role">Member</div>
-      <div class="t-org">Undergraduates &amp; Young Graduates Association (UYAH) — Hapugasthalawa</div>
+      <div class="t-org">Undergraduates &amp; Young Graduates Association (UYGA)</div>
       <ul><li>Engaging undergraduates and young graduates through mentorship, skill-building, and leadership initiatives</li></ul>
     </div>
   </div>
@@ -572,7 +572,7 @@
     <div class="edu-card reveal" style="transition-delay:.1s;">
       <div class="edu-tag">2020 — 2022</div>
       <div class="edu-title">G.C.E. Advanced Level</div>
-      <div class="edu-sub">Al Minhaj National School &middot; Physical Science</div>
+      <div class="edu-sub">Al Minhaj National School · Physical Science</div>
       <div class="edu-grade">3A — Combined Maths, Physics, Chemistry</div>
     </div>
     <div class="edu-card reveal" style="transition-delay:.2s;">
@@ -585,21 +585,20 @@
 </section>
 
 <section id="achievements" class="wrap">
-  <div class="sec-head reveal"><span class="sec-num">06</span><h2 class="sec-title">Achievements</h2><div class="sec-line"></div></div>
+  <div class="sec-head reveal"><span class="sec-num">06</span><h2 class="sec-title">Achievements & Recognition</h2><div class="sec-line"></div></div>
   <div class="ach-grid">
 
     <div class="ach-card reveal">
       <div class="ach-photo">
         <img src="ach1.jpg" alt="TIMESWARE — AgriTech Startup Spark 2026 Top 10" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-        <div class="ph-fallback" style="display:none;">Add<br>ach1.jpg</div>
+        <div class="ph-fallback" style="display:none;">TIMESWARE<br>AgriTech Top 10</div>
       </div>
       <div class="ach-body">
-        <div class="ach-tag">Competition / Achievement</div>
-        <div class="ach-title">TIMESWARE Advances to the Top 10 of AgriTech Startup Spark 2026</div>
-        <div class="ach-date">08 Sep 2026</div>
-        <p class="ach-desc">Our team, TIMESWARE, has been selected among the Top 10 teams advancing to the next stage of AgriTech Startup Spark 2026, a competition focused on technology-driven solutions for the agriculture sector.</p>
+        <div class="ach-tag">Achievement</div>
+        <div class="ach-title">TIMESWARE — AgriTech Startup Spark 2026 Top 10</div>
+        <div class="ach-date">09 Sep 2026</div>
+        <p class="ach-desc">Selected among the Top 10 teams advancing to the next stage of AgriTech Startup Spark 2026, a competition focused on technology-driven solutions for the agriculture sector. AgriSense AI platform recognized for innovation potential.</p>
         <div class="ach-links">
-          <a href="https://www.linkedin.com/posts/iesluop_agritechstartupspark-agritech2026-top10-activity-7502000920403255296-WyYA" target="_blank" rel="noopener">View Announcement →</a>
           <a href="https://github.com/Hafees14/AgriSense_AI" target="_blank" rel="noopener">View Project →</a>
         </div>
       </div>
@@ -608,15 +607,14 @@
     <div class="ach-card reveal" style="transition-delay:.1s;">
       <div class="ach-photo">
         <img src="ach2.jpg" alt="TIMESWARE — Xcellerate 2026 Top 25" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-        <div class="ph-fallback" style="display:none;">Add<br>ach2.jpg</div>
+        <div class="ph-fallback" style="display:none;">Xcellerate 2026<br>Top 25 Teams</div>
       </div>
       <div class="ach-body">
-        <div class="ach-tag">Hackathon / Achievement</div>
-        <div class="ach-title">TIMESWARE Selected as a Top 25 Team at Xcellerate 2026</div>
+        <div class="ach-tag">Hackathon</div>
+        <div class="ach-title">TIMESWARE Selected as Top 25 at Xcellerate 2026</div>
         <div class="ach-date">20 Aug 2026</div>
-        <p class="ach-desc">Our team, TIMESWARE, was selected as one of the Top 25 teams for the Xcellerate Inter-University Ideathon Hackathon 2026, organized by SLASSCOM, out of 150+ applications. Selected teams take part in mentorship sessions and expert-led webinars ahead of the final hackathon in Colombo. Our entry for this competition is the Web-Based PAR Index System.</p>
+        <p class="ach-desc">Selected as one of the Top 25 teams for Xcellerate Inter-University Ideathon Hackathon 2026, organized by SLASSCOM, out of 150+ applications. Participated in mentorship sessions and expert-led webinars. PAR Index System entry demonstrated innovation in healthcare tech.</p>
         <div class="ach-links">
-          <a href="https://www.linkedin.com/posts/slasscom_slasscom-xcellerate2026-interuniversityhackathon-activity-7498970592763797505-y49_/" target="_blank" rel="noopener">View Announcement →</a>
           <a href="https://projects.ce.pdn.ac.lk/co2060/e22/Web_Based_PAR_Index_System/" target="_blank" rel="noopener">View Project →</a>
         </div>
       </div>
@@ -625,16 +623,15 @@
     <div class="ach-card reveal" style="transition-delay:.2s;">
       <div class="ach-photo">
         <img src="ach3.jpg" alt="TIMESWARE — Project Nova Flash Round" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-        <div class="ph-fallback" style="display:none;">Add<br>ach3.jpg</div>
+        <div class="ph-fallback" style="display:none;">Project Nova<br>Flash Round</div>
       </div>
       <div class="ach-body">
-        <div class="ach-tag">Competition / Achievement</div>
-        <div class="ach-title">TIMESWARE Selected for the Project Nova Flash Round</div>
+        <div class="ach-tag">Competition</div>
+        <div class="ach-title">TIMESWARE Selected for Project Nova Flash Round</div>
         <div class="ach-date">20 Aug 2026</div>
-        <p class="ach-desc">Our team, TIMESWARE, has been selected for the Flash Round of Project Nova 2026 with our project, the Web-Based PAR Index System, which automates orthodontic assessment from 3D dental scan models.</p>
+        <p class="ach-desc">Selected for the Flash Round of Project Nova 2026 with the Web-Based PAR Index System, which automates orthodontic assessment from 3D dental scan models, reducing manual assessment time and improving accuracy.</p>
         <div class="ach-links">
           <a href="https://www.project-nova.tech/" target="_blank" rel="noopener">View Project Nova →</a>
-          <a href="https://projects.ce.pdn.ac.lk/co2060/e22/Web_Based_PAR_Index_System/" target="_blank" rel="noopener">View Project →</a>
         </div>
       </div>
     </div>
@@ -647,7 +644,7 @@
     <div class="contact-inner">
       <div>
         <div class="contact-big">Let's build<br>something <span class="grad-text">great.</span></div>
-        <p class="contact-sub">Open to new projects, internships, and collaboration. Fastest way to reach me is WhatsApp.</p>
+        <p class="contact-sub">Open to internships, collaborations, and new projects. Fastest way to reach me is WhatsApp or email.</p>
         <div class="contact-actions">
           <a href="https://wa.me/94754841152" target="_blank" rel="noopener" class="btn btn-solid">Message on WhatsApp</a>
           <a href="cv.pdf" download class="btn btn-ghost">Download CV ↓</a>
@@ -805,7 +802,7 @@
   const termBody = document.getElementById('termBody');
   const lines = [
     {p:'➜', c:'whoami', out:'Ayyash Fawzan — Computer Engineering Undergraduate'},
-    {p:'➜', c:'cat focus.txt', out:'Systems · Embedded · Full-stack · AI'},
+    {p:'➜', c:'cat focus.txt', out:'ML · Full-Stack · Systems · Solving Real Problems'},
     {p:'➜', c:'./status --check', out:'Available for internships & collaboration ✓'},
   ];
   let li = 0, ci = 0;
